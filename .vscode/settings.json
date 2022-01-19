@@ -1,0 +1,7 @@
+{
+    "C_Cpp.intelliSenseEngineFallback": "Disabled",
+	"C_Cpp.intelliSenseCacheSize": 0,
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}
