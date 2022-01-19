@@ -49,7 +49,7 @@ int main()
       	cpt = 0; // remise a zero du compteur
 
         // affichage de l'information
-        cout << "Hello World ! " << endl;
+        cout << "Bonjour monde ! " << endl;
                                 
         //  boucle répétée 10 fois si boucle == true
         while(cpt < 11 && g_boucle)
