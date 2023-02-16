@@ -49,6 +49,14 @@ void main(void)
 
     while (1)
     {
+        if(g_int0==1)
+        {
+            
+        }
+        if(g_int1==1)
+        {
+            
+        }
         
     }
 } //du main
@@ -58,23 +66,29 @@ void main(void)
  */
 void initialisation(void)
 {
-    //configuration de port 
+    unsigned int resAN = 0; //résultat de la conversion AN (10 bits)
+
+    //1configuration de port 
     TRISBbits.RB1 = 1; //Désactive buffer 1 états de RB1. Donc broche en entrée
     TRISBbits.RB0 = 1; //Désactive buffer 0 états de RB0. Donc broche en entrée
     TRISD = 0; //Tout le port D en sortie
     TRISC = 0; //Tout le port C en sortie
     TRISB=0xff;//Tout le port B en entré
+   
+    //2- Config module ADC
     ADCON1=7;
     ADCON0.ADCS0=2;//Fosc/64 (Fréquence pour la conversion la plus longue possible)
     ADCON0.ADCS1=2;//Fosc/64 (Fréquence pour la conversion la plus longue possible)
     ADCON1.ADCS2=2;//Fosc/64 (Fréquence pour la conversion la plus longue possible)
-    ADCON0bits.CHS=7;
+  //  ADCON0bits.CHS=7;
     //InteruptGlobal
     INTCONbits.GIE = 1; //Permettre les interruptions globales
+    
     //Interupt0
     INTCONbits.INT0IF = 0; //Reset flag d'interruption d'INT0 (pour s'assurer de ne pas avoir d'interruption au départ)    
     INTCONbits.INT0IE = 1; //Permettre les interruptions d'INT0
     INTCON2bits.INTEDG0 = 0; //Choisir le front de l'interruption INT0
+    
     //Interrupt1 
     INTCON3bits.INT1IE = 1;//Permettre les interruptions d'INT1
     INTCON3bits.INT1IF = 0; //Reset flag d'interruption d'INT1 (pour s'assurer de ne pas avoir d'interruption au départ)    
