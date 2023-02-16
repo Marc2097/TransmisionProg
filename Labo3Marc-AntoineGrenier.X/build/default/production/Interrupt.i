@@ -10076,15 +10076,12 @@ void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
 {
     if(INTCONbits.INT0IF)
     {
-
-
+        _delay((unsigned long)((200)*(1000000/4000.0)));
         INTCONbits.INT0IF = 0;
 
     }
       if(INTCON3bits.INT1IF)
     {
-
         INTCON3bits.INT1IF = 0;
-
     }
 }

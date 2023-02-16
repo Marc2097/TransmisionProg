@@ -10358,6 +10358,7 @@ unsigned char trouveChiffre(unsigned int anX, unsigned int anY);
 
 
 const unsigned char msg[] = "Lab3 MarcG";
+
 extern _Bool g_int0;
 extern _Bool g_int1;
 unsigned char g_mesChiffres[4];
@@ -10374,6 +10375,14 @@ void main(void)
 
     while (1)
     {
+        if(g_int0==1)
+        {
+
+        }
+        if(g_int1==1)
+        {
+
+        }
 
     }
 }
@@ -10383,18 +10392,32 @@ void main(void)
 
 void initialisation(void)
 {
+    unsigned int resAN = 0;
+
+
+    TRISBbits.RB1 = 1;
+    TRISBbits.RB0 = 1;
     TRISD = 0;
     TRISC = 0;
-    TRISB=1;
+    TRISB=0xff;
+
+
     ADCON1=7;
+    ADCON0.ADCS0=2;
+    ADCON0.ADCS1=2;
+    ADCON1.ADCS2=2;
+
 
     INTCONbits.GIE = 1;
+
 
     INTCONbits.INT0IF = 0;
     INTCONbits.INT0IE = 1;
     INTCON2bits.INTEDG0 = 0;
 
+
     INTCON3bits.INT1IE = 1;
     INTCON3bits.INT1IF = 0;
     INTCON2bits.INTEDG1 = 0;
+
 }
