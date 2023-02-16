@@ -68,6 +68,7 @@ void initialisation(void)
     ADCON0.ADCS0=2;//Fosc/64 (Fréquence pour la conversion la plus longue possible)
     ADCON0.ADCS1=2;//Fosc/64 (Fréquence pour la conversion la plus longue possible)
     ADCON1.ADCS2=2;//Fosc/64 (Fréquence pour la conversion la plus longue possible)
+    ADCON0bits.CHS=7;
     //InteruptGlobal
     INTCONbits.GIE = 1; //Permettre les interruptions globales
     //Interupt0
